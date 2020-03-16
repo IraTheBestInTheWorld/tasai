@@ -15,7 +15,7 @@ namespace ConsoleApp3
 
         public override string ToString()
         {
-            return $"ID: {Id}, Login: {Login}, Password: {Password}";
+            return $"ID: {Id}, Login: {Login}, Password: {Password}, Role: {Role}";
         }
 
     }

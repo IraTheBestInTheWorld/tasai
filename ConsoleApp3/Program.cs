@@ -17,14 +17,22 @@ namespace ConsoleApp3
 
             switch (x)
             {
-                case "1": Login(); break;
-                case "2": CreateUsers(); break;
+                case "1":
+                   var login = Login();
+                    break;
+                case "2":
+                  var currentUser =  CreateUsers();
+                    break;
             }
 
             //foreach (var user in users)
             //{
             //    Console.WriteLine(user);
             //}
+            if (currentUser)
+            {
+
+            }
             Console.WriteLine("if you want to delete enter d");
             var d = Console.ReadLine();
             Console.WriteLine(" enter id");
@@ -73,6 +81,11 @@ namespace ConsoleApp3
             return currentUser;
         }
 
+        static void ShowAllUsers()
+        {
+            GetUsers().ForEach(x => Console.WriteLine($"ID: {x.Id}, Login: {x.Login}, Password: {x.Password}, Role: {x.Role}"));
+        }
+
         static void DeleteSelectedUser(int idToDeleteUser)
 
         {
@@ -109,7 +122,7 @@ namespace ConsoleApp3
             return arrayOfUsers;
         }
 
-        static void Login()
+        static string Login()
         {
             Console.WriteLine("Enter your LOGIN?");
             var login = Console.ReadLine();
@@ -130,6 +143,7 @@ namespace ConsoleApp3
             {
                 Console.WriteLine($"\nOK, {login}, HELLO!!!!");
             }
+            return login;
         }
 
         static string GetPassword()
